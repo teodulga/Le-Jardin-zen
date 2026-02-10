@@ -26,6 +26,7 @@
       --muted:#5a5a63;
       --card:#ffffff;
       --line:#e9e3ee;
+      --white:#fff;
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
@@ -35,20 +36,14 @@
       color:var(--ink);
       background:linear-gradient(180deg, var(--prune-200), #fff 35%);
     }
-    a{color:var(--prune-700)}
-    .wrap{max-width:1100px;margin:0 auto;padding:18px 16px 48px}
-
-    header{display:flex;align-items:center;gap:14px;padding:14px 0 10px}
-    .brand{display:flex;align-items:center;gap:12px;min-width:0}
-    .brand img{width:56px;height:56px;object-fit:contain}
-    .brand h1{font-size:1.25rem;margin:0;letter-spacing:.4px}
-    .brand p{margin:2px 0 0;color:var(--muted);font-size:.95rem}
+    a{color:inherit}
+    .wrap{max-width:1100px;margin:0 auto;padding:18px 16px 52px}
 
     .topnav{
       position:sticky;
       top:0;
       z-index:10;
-      margin:8px 0 16px;
+      margin:0 0 14px;
       padding:10px;
       border:1px solid var(--line);
       border-radius:16px;
@@ -61,7 +56,7 @@
     }
     .topnav a{
       text-decoration:none;
-      font-weight:700;
+      font-weight:750;
       color:var(--prune-900);
       padding:8px 10px;
       border-radius:12px;
@@ -73,20 +68,88 @@
       border:1px solid var(--line);
       border-radius:18px;
       overflow:hidden;
-      background:var(--card);
       box-shadow:0 10px 30px rgba(43,15,47,.08);
+      background:
+        linear-gradient(90deg, rgba(43,15,47,.62), rgba(43,15,47,.18)),
+        url("banniere.jpg");
+      background-size:cover;
+      background-position:center;
+      color:var(--white);
+      min-height:260px;
+      display:flex;
+      align-items:center;
     }
-    .hero img{width:100%;height:240px;object-fit:cover;display:block}
-    .hero .inner{padding:16px}
-    .hero .inner h2{margin:0 0 6px;font-size:1.25rem}
-    .pill{
-      display:inline-block;
-      padding:6px 10px;
-      border-radius:999px;
-      background:rgba(75,31,83,.10);
-      color:var(--prune-900);
-      font-weight:600;
-      font-size:.9rem;
+    .hero-inner{
+      width:100%;
+      padding:18px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+    .hero-brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      min-width:260px;
+    }
+    .hero-brand img{
+      width:76px;
+      height:76px;
+      object-fit:contain;
+      filter: drop-shadow(0 10px 18px rgba(0,0,0,.25));
+    }
+    .hero-brand h1{
+      margin:0;
+      letter-spacing:1.2px;
+      font-size:1.55rem;
+      line-height:1.1;
+    }
+    .hero-brand .sub{
+      margin:6px 0 0;
+      opacity:.92;
+      font-weight:650;
+    }
+
+    .social{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .iconbtn{
+      width:46px;
+      height:46px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.25);
+      background:rgba(255,255,255,.12);
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      text-decoration:none;
+      backdrop-filter: blur(6px);
+    }
+    .iconbtn:focus{outline:3px solid rgba(241,231,243,.8); outline-offset:2px}
+    .icon{
+      width:22px;
+      height:22px;
+      fill:currentColor;
+      color:#fff;
+      opacity:.96;
+    }
+    .snapname{
+      height:46px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.25);
+      background:rgba(255,255,255,.12);
+      display:inline-flex;
+      align-items:center;
+      padding:0 12px;
+      font-weight:750;
+      letter-spacing:.2px;
+      white-space:nowrap;
     }
 
     .section{margin-top:16px}
@@ -97,10 +160,9 @@
       padding:16px;
       box-shadow:0 10px 30px rgba(43,15,47,.06);
     }
-    .card h3{margin:0 0 10px;font-size:1.1rem}
-    .note{color:var(--muted);font-size:.95rem;margin:8px 0 0}
-    .small{font-size:.9rem;color:var(--muted)}
-    .contacts{display:grid;gap:10px}
+    .card h2, .card h3{margin:0 0 10px}
+    .note{color:var(--muted);font-size:.95rem;margin:10px 0 0}
+    .anchor{scroll-margin-top:92px}
 
     table{
       width:100%;
@@ -120,11 +182,11 @@
       text-align:center;
       background:rgba(75,31,83,.06);
       color:var(--prune-900);
-      font-weight:700;
+      font-weight:800;
       position:sticky;top:0;
     }
     td:first-child{
-      font-weight:700;
+      font-weight:800;
       color:var(--prune-900);
       text-align:left;
       background:rgba(241,231,243,.6);
@@ -134,63 +196,87 @@
     tr:last-child td{border-bottom:none}
     .slash{color:#9a93a2}
 
-    .btnrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
-    .btn{
-      display:inline-block;
-      padding:10px 12px;
-      border-radius:12px;
+    .contactline{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+      margin-top:10px;
+      padding:12px 12px;
       border:1px solid var(--line);
-      background:#fff;
-      text-decoration:none;
-      color:var(--prune-900);
-      font-weight:650;
-      word-break:break-word;
+      border-radius:16px;
+      background:rgba(241,231,243,.35);
     }
-    .btn.primary{
-      background:var(--prune-900);
-      color:#fff;
-      border-color:transparent;
+    .contactline .who{font-weight:850;color:var(--prune-900)}
+    .contactline .tel{
+      font-weight:900;
+      color:var(--prune-900);
+      letter-spacing:.4px;
+      text-decoration:none;
+    }
+    .contactline .mail{
+      color:var(--prune-700);
+      font-weight:750;
+      text-decoration:none;
+    }
+    .contactline .right{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap;
     }
 
-    .anchor{scroll-margin-top:92px}
+    .pill{
+      display:inline-block;
+      padding:7px 10px;
+      border-radius:999px;
+      background:rgba(75,31,83,.10);
+      color:var(--prune-900);
+      font-weight:800;
+      font-size:.9rem;
+    }
   </style>
 </head>
 
 <body>
   <div class="wrap">
-    <header>
-      <div class="brand">
-        <img src="logo.png" alt="Logo Le Jardin Zen" />
-        <div>
-          <h1>LE JARDIN ZEN</h1>
-          <p>Céline Vergnol</p>
-        </div>
-      </div>
-    </header>
-
     <nav class="topnav" aria-label="Navigation">
-      <a href="#tarifs">Tarifs massages</a>
+      <a href="#tarifs">Tarifs</a>
       <a href="#soins">Soins divers</a>
       <a href="#contact">Contact</a>
     </nav>
 
-    <section class="hero">
-      <img src="banniere.png" alt="Bannière lotus zen" />
-      <div class="inner">
-        <span class="pill">Tarifs salon</span>
-        <h2>Massages & soins</h2>
-        <p class="note">Les tarifs s’entendent TTC. Certains soins/massages peuvent être effectués sur les enfants ou les femmes enceintes, demandez plus d’informations.</p>
-        <div class="btnrow">
-          <a class="btn primary" href="tel:+33665215227">Appeler : 06 65 21 52 27</a>
-          <a class="btn" href="mailto:Celine.desmars63@gmail.com">Email</a>
-          <a class="btn" href="https://instagram.com/le_jardin_zen_">Instagram @le_jardin_zen_</a>
-          <a class="btn" href="https://www.facebook.com/people/Le-Jardin-zen/100039719215577/">Facebook</a>
+    <section class="hero" aria-label="Bannière">
+      <div class="hero-inner">
+        <div class="hero-brand">
+          <img src="logo.png" alt="Logo Le Jardin Zen" />
+          <div>
+            <h1>LE JARDIN ZEN</h1>
+            <div class="sub">Céline Vergnol</div>
+          </div>
+        </div>
+
+        <div class="social" aria-label="Réseaux sociaux">
+          <a class="iconbtn" href="https://instagram.com/le_jardin_zen_" aria-label="Instagram Le Jardin Zen" title="Instagram">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7.8 2h8.4A5.8 5.8 0 0 1 22 7.8v8.4A5.8 5.8 0 0 1 16.2 22H7.8A5.8 5.8 0 0 1 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2Zm8.4 2H7.8A3.8 3.8 0 0 0 4 7.8v8.4A3.8 3.8 0 0 0 7.8 20h8.4a3.8 3.8 0 0 0 3.8-3.8V7.8A3.8 3.8 0 0 0 16.2 4ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.6-2.3a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2Z"/>
+            </svg>
+          </a>
+
+          <a class="iconbtn" href="https://www.facebook.com/people/Le-Jardin-zen/100039719215577/" aria-label="Facebook Le Jardin Zen" title="Facebook">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M13.5 22v-8h2.7l.4-3H13.5V9.1c0-.9.3-1.6 1.6-1.6h1.6V4.8c-.3 0-1.3-.1-2.4-.1-2.4 0-4.1 1.5-4.1 4.3V11H8v3h2.2v8h3.3Z"/>
+            </svg>
+          </a>
+
+          <div class="snapname" aria-label="Snapchat">Snap: celinevergnol</div>
         </div>
       </div>
     </section>
 
     <section class="section card anchor" id="tarifs">
-      <h3>Massages du corps</h3>
+      <h2>Tarifs</h2>
       <div style="overflow:auto;border-radius:14px;">
         <table aria-label="Tarifs massages du corps">
           <thead>
@@ -311,10 +397,24 @@
           </tbody>
         </table>
       </div>
+
+      <div style="margin-top:12px">
+        <span class="pill">Tarifs salon</span>
+        <h3 style="margin:10px 0 6px">Massages & soins</h3>
+        <p class="note" style="margin-top:0">Les tarifs s’entendent TTC. Certains soins/massages peuvent être effectués sur les enfants ou les femmes enceintes, demandez plus d’informations.</p>
+      </div>
+
+      <div class="contactline" aria-label="Contact rapide">
+        <div class="who">Le Jardin Zen — Céline Vergnol</div>
+        <div class="right">
+          <a class="tel" href="tel:+33665215227">06 65 21 52 27</a>
+          <a class="mail" href="mailto:Celine.desmars63@gmail.com">Celine.desmars63@gmail.com</a>
+        </div>
+      </div>
     </section>
 
     <section class="section card anchor" id="soins">
-      <h3>Soins divers</h3>
+      <h2>Soins divers</h2>
       <table aria-label="Tarifs soins divers">
         <thead>
           <tr>
@@ -339,17 +439,34 @@
           </tr>
         </tbody>
       </table>
-      <p class="note">Pour une demande spéciale, contacte-moi sur Instagram ou par téléphone.</p>
     </section>
 
     <section class="section card anchor" id="contact">
-      <h3>Contact</h3>
-      <div class="contacts">
-        <a class="btn primary" href="tel:+33665215227">Téléphone : 06 65 21 52 27</a>
-        <a class="btn" href="mailto:Celine.desmars63@gmail.com">Mail : Celine.desmars63@gmail.com</a>
-        <a class="btn" href="https://instagram.com/le_jardin_zen_">Instagram : @le_jardin_zen_</a>
-        <a class="btn" href="https://www.facebook.com/people/Le-Jardin-zen/100039719215577/">Facebook : Le Jardin zen</a>
-        <div class="small">Snap : celinevergnol</div>
+      <h2>Contact</h2>
+      <div class="contactline">
+        <div class="who">Céline Vergnol</div>
+        <div class="right">
+          <a class="tel" href="tel:+33665215227">06 65 21 52 27</a>
+          <a class="mail" href="mailto:Celine.desmars63@gmail.com">Celine.desmars63@gmail.com</a>
+        </div>
+      </div>
+
+      <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+        <a class="iconbtn" style="color:#fff;background:rgba(43,15,47,.10);border-color:var(--line)" href="https://instagram.com/le_jardin_zen_" aria-label="Instagram">
+          <svg class="icon" style="color:var(--prune-900);opacity:1" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7.8 2h8.4A5.8 5.8 0 0 1 22 7.8v8.4A5.8 5.8 0 0 1 16.2 22H7.8A5.8 5.8 0 0 1 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2Zm8.4 2H7.8A3.8 3.8 0 0 0 4 7.8v8.4A3.8 3.8 0 0 0 7.8 20h8.4a3.8 3.8 0 0 0 3.8-3.8V7.8A3.8 3.8 0 0 0 16.2 4ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.6-2.3a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2Z"/>
+          </svg>
+        </a>
+
+        <a class="iconbtn" style="color:#fff;background:rgba(43,15,47,.10);border-color:var(--line)" href="https://www.facebook.com/people/Le-Jardin-zen/100039719215577/" aria-label="Facebook">
+          <svg class="icon" style="color:var(--prune-900);opacity:1" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M13.5 22v-8h2.7l.4-3H13.5V9.1c0-.9.3-1.6 1.6-1.6h1.6V4.8c-.3 0-1.3-.1-2.4-.1-2.4 0-4.1 1.5-4.1 4.3V11H8v3h2.2v8h3.3Z"/>
+          </svg>
+        </a>
+
+        <div class="iconbtn" style="width:auto;padding:0 12px;color:var(--prune-900);background:rgba(43,15,47,.10);border-color:var(--line);font-weight:850">
+          Snap: celinevergnol
+        </div>
       </div>
     </section>
   </div>
