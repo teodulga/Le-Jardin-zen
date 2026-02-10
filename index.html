@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Le Jardin Zen — Massages & soins</title>
-  <meta name="description" content="Le Jardin Zen (Céline Vergnol) : massages, soins et tarifs." />
+  <meta name="description" content="Le Jardin Zen (Céline Vergnol) : massages, soins, ateliers et tarifs." />
 
   <script type="application/ld+json">
   {
@@ -19,14 +19,18 @@
 
   <style>
     :root{
+      --prune-950:#1f0a22;
       --prune-900:#2b0f2f;
+      --prune-800:#3a1440;
       --prune-700:#4b1f53;
+      --prune-500:#7b3a86;
       --prune-200:#f1e7f3;
       --ink:#1d1d1f;
       --muted:#5a5a63;
       --card:#ffffff;
-      --line:#e9e3ee;
+      --line:rgba(43,15,47,.10);
       --white:#fff;
+      --gold:#c8a86a;
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
@@ -34,9 +38,12 @@
       margin:0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       color:var(--ink);
-      background:linear-gradient(180deg, var(--prune-200), #fff 35%);
+      background:
+        radial-gradient(1200px 600px at 20% 0%, rgba(123,58,134,.18), transparent 60%),
+        radial-gradient(900px 500px at 90% 10%, rgba(200,168,106,.14), transparent 55%),
+        linear-gradient(180deg, var(--prune-200), #fff 40%);
     }
-    .wrap{max-width:1100px;margin:0 auto;padding:18px 16px 52px}
+    .wrap{max-width:1100px;margin:0 auto;padding:18px 16px 70px}
 
     .topnav{
       position:sticky; top:0; z-index:10;
@@ -44,9 +51,9 @@
       padding:10px;
       border:1px solid var(--line);
       border-radius:16px;
-      background:rgba(255,255,255,.86);
-      backdrop-filter: blur(8px);
-      box-shadow:0 10px 30px rgba(43,15,47,.06);
+      background:rgba(255,255,255,.88);
+      backdrop-filter: blur(10px);
+      box-shadow:0 14px 40px rgba(43,15,47,.10);
       display:flex;
       justify-content:flex-end;
       gap:10px;
@@ -54,114 +61,84 @@
     }
     .topnav a{
       text-decoration:none;
-      font-weight:800;
+      font-weight:850;
       color:var(--prune-900);
       padding:8px 10px;
       border-radius:12px;
       border:1px solid rgba(43,15,47,.10);
       background:#fff;
     }
+    .topnav a:hover{background:rgba(241,231,243,.65)}
 
     .hero{
       border:1px solid var(--line);
-      border-radius:18px;
+      border-radius:22px;
       overflow:hidden;
-      box-shadow:0 10px 30px rgba(43,15,47,.08);
+      box-shadow:0 16px 50px rgba(43,15,47,.14);
       background:
-        linear-gradient(180deg, rgba(43,15,47,.10), rgba(43,15,47,.55)),
+        linear-gradient(90deg, rgba(31,10,34,.55), rgba(31,10,34,.12)),
         url("banniere.png");
       background-size:cover;
       background-position:center;
-      min-height:320px;
+      min-height:330px;
       position:relative;
       color:var(--white);
-      padding:16px;
+      padding:18px;
       display:flex;
       align-items:flex-start;
       justify-content:flex-start;
     }
-
-    .hero-stack{
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-      max-width:680px;
-    }
-
+    .hero-stack{display:flex;flex-direction:column;gap:12px;max-width:760px}
     .hero-brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      padding:10px 12px;
-      border-radius:16px;
-      background:rgba(255,255,255,.12);
-      border:1px solid rgba(255,255,255,.22);
-      backdrop-filter: blur(6px);
+      display:flex;align-items:center;gap:12px;
+      padding:12px 14px;
+      border-radius:18px;
+      background:rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.25);
+      backdrop-filter: blur(8px);
       width:fit-content;
     }
-    .hero-brand img{
-      width:64px;height:64px;object-fit:contain;
-      filter: drop-shadow(0 10px 18px rgba(0,0,0,.22));
-    }
+    .hero-brand img{width:66px;height:66px;object-fit:contain;filter: drop-shadow(0 14px 24px rgba(0,0,0,.22))}
     .hero-title{line-height:1.05}
-    .hero-title .name{
-      margin:0;
-      font-size:1.55rem;
-      letter-spacing:1.2px;
-      font-weight:950;
-    }
-    .hero-title .sub{
-      margin:6px 0 0;
-      opacity:.95;
-      font-weight:750;
-    }
-
+    .hero-title .name{margin:0;font-size:1.6rem;letter-spacing:1.2px;font-weight:950}
+    .hero-title .sub{margin:6px 0 0;opacity:.95;font-weight:800}
     .hero-social{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      flex-wrap:wrap;
-      padding:10px 12px;
-      border-radius:16px;
-      background:rgba(255,255,255,.12);
-      border:1px solid rgba(255,255,255,.22);
-      backdrop-filter: blur(6px);
+      display:flex;gap:10px;align-items:center;flex-wrap:wrap;
+      padding:12px 14px;
+      border-radius:18px;
+      background:rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.25);
+      backdrop-filter: blur(8px);
       width:fit-content;
     }
     .iconbtn{
-      width:46px;height:46px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.25);
+      width:46px;height:46px;border-radius:14px;
+      border:1px solid rgba(255,255,255,.30);
       background:rgba(255,255,255,.12);
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
+      display:inline-flex;align-items:center;justify-content:center;
       text-decoration:none;
     }
     .icon{width:22px;height:22px;fill:currentColor;color:#fff;opacity:.96}
     .snapbox{
-      height:46px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.25);
+      height:46px;border-radius:14px;
+      border:1px solid rgba(255,255,255,.30);
       background:rgba(255,255,255,.12);
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:0 12px;
-      font-weight:900;
-      white-space:nowrap;
+      display:inline-flex;align-items:center;gap:8px;
+      padding:0 12px;font-weight:900;white-space:nowrap;
     }
 
-    .section{margin-top:16px}
+    .section{margin-top:18px}
+    .anchor{scroll-margin-top:92px}
     .card{
       border:1px solid var(--line);
-      border-radius:18px;
-      background:var(--card);
-      padding:16px;
-      box-shadow:0 10px 30px rgba(43,15,47,.06);
+      border-radius:22px;
+      background:linear-gradient(180deg, #fff, rgba(241,231,243,.45));
+      padding:18px;
+      box-shadow:0 16px 50px rgba(43,15,47,.10);
     }
-    .anchor{scroll-margin-top:92px}
-    .note{color:var(--muted);font-size:.95rem;margin:10px 0 0}
+    .card h2{margin:0 0 10px;color:var(--prune-900);letter-spacing:.2px}
+    .card h3{margin:12px 0 8px;color:var(--prune-900)}
+    .note{color:var(--muted);font-size:.98rem;margin:10px 0 0}
     .pill{
       display:inline-block;
       padding:7px 10px;
@@ -170,59 +147,93 @@
       color:var(--prune-900);
       font-weight:900;
       font-size:.9rem;
+      border:1px solid rgba(43,15,47,.10);
+    }
+
+    .bio{
+      display:grid;
+      gap:12px;
+    }
+    @media (min-width: 900px){
+      .bio{grid-template-columns: 1.2fr .8fr;}
+    }
+    .highlight{
+      border:1px solid rgba(200,168,106,.35);
+      background:linear-gradient(180deg, rgba(200,168,106,.14), rgba(255,255,255,.65));
+      border-radius:18px;
+      padding:14px;
+    }
+    .highlight strong{color:var(--prune-900)}
+    .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+    .chip{
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(43,15,47,.12);
+      background:#fff;
+      font-weight:850;
+      color:var(--prune-900);
+      font-size:.92rem;
+    }
+
+    .massage-grid{
+      display:grid;
+      gap:12px;
+    }
+    @media (min-width: 900px){
+      .massage-grid{grid-template-columns: 1fr 1fr;}
+    }
+    .mcard{
+      border:1px solid rgba(43,15,47,.10);
+      background:#fff;
+      border-radius:18px;
+      padding:14px;
+      box-shadow:0 10px 30px rgba(43,15,47,.08);
+    }
+    .mcard h4{margin:0 0 6px;color:var(--prune-900);font-size:1.05rem}
+    .mcard p{margin:0;color:#2a2a2f;line-height:1.5}
+    .tagrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+    .tag{
+      display:inline-block;
+      padding:6px 9px;
+      border-radius:999px;
+      background:rgba(241,231,243,.75);
+      border:1px solid rgba(43,15,47,.10);
+      color:var(--prune-800);
+      font-weight:850;
+      font-size:.88rem;
     }
 
     table{
       width:100%;
       border-collapse:collapse;
       font-size:.95rem;
-      border-radius:14px;
-      border:1px solid var(--line);
+      border-radius:16px;
+      border:1px solid rgba(43,15,47,.12);
       overflow:hidden;
       background:#fff;
+      box-shadow:0 10px 30px rgba(43,15,47,.08);
     }
-    th, td{
-      padding:10px 10px;
-      border-bottom:1px solid var(--line);
-      vertical-align:middle;
-    }
+    th, td{padding:10px 10px;border-bottom:1px solid rgba(43,15,47,.10);vertical-align:middle}
     th{
       text-align:center;
-      background:rgba(75,31,83,.06);
+      background:linear-gradient(180deg, rgba(241,231,243,.95), rgba(241,231,243,.55));
       color:var(--prune-900);
-      font-weight:900;
+      font-weight:950;
       position:sticky;top:0;
     }
     td:first-child{
-      font-weight:900;
+      font-weight:950;
       color:var(--prune-900);
       text-align:left;
-      background:rgba(241,231,243,.6);
+      background:rgba(241,231,243,.55);
       width:240px;
     }
     td{text-align:center}
     tr:last-child td{border-bottom:none}
     .slash{color:#9a93a2}
 
-    .contact-classic{
-      display:grid;
-      gap:10px;
-      margin-top:10px;
-    }
-    .contact-row{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      align-items:center;
-      justify-content:space-between;
-      padding:12px 14px;
-      border:1px solid var(--line);
-      border-radius:16px;
-      background:rgba(241,231,243,.30);
-    }
-    .contact-row strong{color:var(--prune-900)}
-    .contact-row a{color:var(--prune-700);text-decoration:none;font-weight:900}
-    .contact-row .plain{font-weight:950;color:var(--prune-900);letter-spacing:.4px}
+    .contact p{margin:8px 0;color:#2a2a2f}
+    .contact a{color:var(--prune-700);text-decoration:none;font-weight:900}
   </style>
 </head>
 
@@ -230,6 +241,7 @@
   <div class="wrap">
     <nav class="topnav" aria-label="Navigation">
       <a href="#apropos">À propos</a>
+      <a href="#massages">Massages</a>
       <a href="#tarifs">Tarifs</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -269,16 +281,113 @@
 
     <section class="section card anchor" id="apropos">
       <h2>À propos</h2>
-      <p style="margin:0">Salut, moi c’est Céline. Après 3 ans et demi de formation en kinésithérapie/ostéopathie, je me suis spécialisée dans le massage sportif. J’ai aussi obtenu un diplôme de shiatsu au Japon (8 mois) et je me suis formée au Tam Quat ainsi qu’au massage thaï lors d’un parcours de 8 mois entre le Cambodge, le Laos et le Vietnam. Pendant 15 ans, j’ai exercé pour de grands hôtels en France et à l’étranger.
+      <div class="bio">
+        <div>
+          <p style="margin:0;line-height:1.65">
+            Salut, moi c’est Céline. Après 3 ans et demi de formation en kinésithérapie/ostéopathie, je me suis spécialisée dans le massage sportif.
+            J’ai aussi obtenu un diplôme de shiatsu au Japon (8 mois) et je me suis formée au Tam Quat ainsi qu’au massage thaï lors d’un parcours de 8 mois entre le Cambodge, le Laos et le Vietnam.
+            Pendant 15 ans, j’ai exercé pour de grands hôtels en France et à l’étranger.
+          </p>
+          <p style="margin:10px 0 0;line-height:1.65">
+            Je te propose de voyager à travers le massage, avec des séances de 30 minutes à 4 heures, sur table ou sur tatamis, en relaxation ou en traditionnel.
+            J’organise également des ateliers et des retraites spirituelles.
+          </p>
 
-Je te propose de voyager à travers le massage, en prenant soin de toi avec des séances de 30 minutes à 4 heures, sur table ou sur tatamis, en relaxation ou en traditionnel. J’organise également des ateliers et des retraites spirituelles.</p>
+          <div class="chips" aria-label="Spécialités">
+            <span class="chip">Sportif</span>
+            <span class="chip">Shiatsu (Japon)</span>
+            <span class="chip">Massage thaï</span>
+            <span class="chip">Tam Quat</span>
+            <span class="chip">Relaxation</span>
+            <span class="chip">Traditionnel</span>
+          </div>
+        </div>
+
+        <div class="highlight">
+          <p style="margin:0"><strong>Formats</strong> : 30 min → 4 h, table ou tatamis.</p>
+          <p style="margin:10px 0 0"><strong>Approche</strong> : écoute, adaptation, précision du geste.</p>
+          <p style="margin:10px 0 0"><strong>Objectif</strong> : relâcher les tensions, retrouver de l’énergie, mieux récupérer.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section card anchor" id="massages">
+      <h2>Massages</h2>
+
+      <div class="massage-grid">
+        <div class="mcard">
+          <h4>Relaxant / Décontractant</h4>
+          <p>Un massage enveloppant pour apaiser le mental et relâcher les tensions du quotidien, avec un rythme fluide et une pression modulée selon tes besoins.</p>
+          <div class="tagrow">
+            <span class="tag">Détente</span><span class="tag">Stress</span><span class="tag">Sommeil</span>
+          </div>
+        </div>
+
+        <div class="mcard">
+          <h4>Dynamisant</h4>
+          <p>Un massage tonique qui stimule la circulation et réveille le corps, idéal quand tu veux retrouver du peps et une sensation d’énergie.</p>
+          <div class="tagrow">
+            <span class="tag">Énergie</span><span class="tag">Tonique</span><span class="tag">Vitalité</span>
+          </div>
+        </div>
+
+        <div class="mcard">
+          <h4>Personnalisé</h4>
+          <p>Une séance sur-mesure : on adapte la durée, la pression et les zones (dos, nuque, jambes…) selon tes priorités du moment.</p>
+          <div class="tagrow">
+            <span class="tag">Sur-mesure</span><span class="tag">Tensions ciblées</span><span class="tag">Écoute</span>
+          </div>
+        </div>
+
+        <div class="mcard">
+          <h4>Massage avec galets chauds</h4>
+          <p>La chaleur des pierres aide à détendre en profondeur, pour un relâchement progressif et une sensation cocooning très réconfortante.</p>
+          <div class="tagrow">
+            <span class="tag">Chaleur</span><span class="tag">Profondeur</span><span class="tag">Cocon</span>
+          </div>
+        </div>
+
+        <div class="mcard">
+          <h4>Corps entier (visage inclus)</h4>
+          <p>Une expérience complète pour harmoniser tout le corps, calmer le système nerveux et repartir avec une vraie sensation d’équilibre.</p>
+          <div class="tagrow">
+            <span class="tag">Global</span><span class="tag">Lâcher-prise</span><span class="tag">Équilibre</span>
+          </div>
+        </div>
+
+        <div class="mcard">
+          <h4>Traditionnel (Vietnamien / Shiatsu)</h4>
+          <p>Des techniques traditionnelles centrées sur les méridiens, les pressions et le rééquilibrage. Idéal si tu aimes une approche plus “tradition”.</p>
+          <div class="tagrow">
+            <span class="tag">Shiatsu</span><span class="tag">Méridiens</span><span class="tag">Tradition</span>
+          </div>
+        </div>
+
+        <div class="mcard">
+          <h4>Sportif</h4>
+          <p>Un massage orienté récupération : travail plus ciblé, adapté à tes activités, pour aider à décrisper et améliorer la sensation de mobilité.</p>
+          <div class="tagrow">
+            <span class="tag">Récupération</span><span class="tag">Mobilité</span><span class="tag">Ciblé</span>
+          </div>
+        </div>
+
+        <div class="mcard">
+          <h4>Ateliers & retraites spirituelles</h4>
+          <p>Des temps dédiés pour ralentir, se recentrer et avancer en conscience, avec des ateliers et des retraites selon les périodes.</p>
+          <div class="tagrow">
+            <span class="tag">Atelier</span><span class="tag">Retraite</span><span class="tag">Bien-être</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="note">Si tu veux, je peux aussi ajouter une mini FAQ (contre-indications, tenue, déroulé, conseils après séance).</p>
     </section>
 
     <section class="section card anchor" id="tarifs">
       <h2>Tarifs</h2>
 
-      <h3 style="margin:12px 0 10px">Massage</h3>
-      <div style="overflow:auto;border-radius:14px;">
+      <h3>Massage</h3>
+      <div style="overflow:auto;border-radius:16px;">
         <table aria-label="Tarifs massages du corps">
           <thead>
             <tr>
@@ -399,7 +508,7 @@ Je te propose de voyager à travers le massage, en prenant soin de toi avec des 
         </table>
       </div>
 
-      <h3 style="margin:16px 0 10px">Soin divers</h3>
+      <h3 style="margin-top:16px">Soin divers</h3>
       <table aria-label="Tarifs soins divers">
         <thead>
           <tr>
@@ -432,15 +541,14 @@ Je te propose de voyager à travers le massage, en prenant soin de toi avec des 
       </div>
     </section>
 
-  <section class="section card anchor" id="contact">
-    <h2>Contact</h2>
-    <p><strong>Téléphone :</strong> <a href="tel:+33665215227">06 65 21 52 27</a></p>
-    <p><strong>Email :</strong> <a href="mailto:Celine.desmars63@gmail.com">Celine.desmars63@gmail.com</a></p>
-    <p><strong>Instagram :</strong> <a href="https://instagram.com/le_jardin_zen_">@le_jardin_zen_</a></p>
-    <p><strong>Facebook :</strong> <a href="https://www.facebook.com/people/Le-Jardin-zen/100039719215577/">Le Jardin zen</a></p>
-    <p><strong>Snapchat :</strong> celinevergnol</p>
-  </section>
-
+    <section class="section card anchor contact" id="contact">
+      <h2>Contact</h2>
+      <p><strong>Téléphone :</strong> <a href="tel:+33665215227">06 65 21 52 27</a></p>
+      <p><strong>Email :</strong> <a href="mailto:Celine.desmars63@gmail.com">Celine.desmars63@gmail.com</a></p>
+      <p><strong>Instagram :</strong> <a href="https://instagram.com/le_jardin_zen_">@le_jardin_zen_</a></p>
+      <p><strong>Facebook :</strong> <a href="https://www.facebook.com/people/Le-Jardin-zen/100039719215577/">Le Jardin zen</a></p>
+      <p><strong>Snapchat :</strong> celinevergnol</p>
+    </section>
   </div>
 </body>
 </html>
